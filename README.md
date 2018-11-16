@@ -3,6 +3,6 @@
 # firstTEST
 primo test blockchain
 
--> **[pagina di verifica automatica](https://github.com/pedro87DEV/firstTEST/edit/master/homepage)** 
+-> **[pagina di verifica automatica](https://github.com/pedro87DEV/firstTEST)** 
 
 
