@@ -1,4 +1,4 @@
-![logo](./images/logo_ACV.jpg)  
+![logo](./images/logoACV.jpg)  
 
 # firstTEST
 primo test blockchain
