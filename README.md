@@ -3,9 +3,8 @@
 # firstTEST
 primo test blockchain
 
--> **[pagina di verifica automatica](https://github.com/pedro87DEV/firstTEST)** 
+-> **[pagina di verifica automatica](https://github.com/pedro87DEV/index.html)** 
 
-<a href='http://google.com/' data-intro='Hello step one!'></a>
 
 
 
