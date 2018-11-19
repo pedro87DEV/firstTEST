@@ -1,10 +1,125 @@
-<!DOCTYPE html>
-<html>
-<body>
-
-<h2>My First JavaScript</h2>
-
-<a href='http://google.com/' data-intro='Hello step one!'></a>
-
-</body>
-</html> 
+ <!DOCTYPE html> 
+2  <html lang="en"> 
+3    <head> 
+4      <meta charset="utf-8"> 
+5      <title>HTML in tooltip</title> 
+6      <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+7      <meta name="description" content="Intro.js - Better introductions for websites and features with a step-by-step guide for your projects."> 
+8      <meta name="author" content="Afshin Mehrabani (@afshinmeh) in usabli.ca group"> 
+9  
+ 
+10      <!-- styles --> 
+11      <link href="../assets/css/bootstrap.min.css" rel="stylesheet"> 
+12      <link href="../assets/css/demo.css" rel="stylesheet"> 
+13  
+ 
+14      <!-- Add IntroJs styles --> 
+15      <link href="../../introjs.css" rel="stylesheet"> 
+16  
+ 
+17      <link href="../assets/css/bootstrap-responsive.min.css" rel="stylesheet"> 
+18    </head> 
+19  
+ 
+20    <body> 
+21  
+ 
+22      <div class="container-narrow"> 
+23  
+ 
+24        <div class="masthead"> 
+25          <ul id="step5" class="nav nav-pills pull-right"> 
+26            <li><a href="https://github.com/usablica/intro.js/tags"><i class='icon-black icon-download-alt'></i> Download</a></li> 
+27            <li><a href="https://github.com/usablica/intro.js">Github</a></li> 
+28            <li><a href="https://twitter.com/usablica">@usablica</a></li> 
+29          </ul> 
+30          <h3 class="muted">Intro.js</h3> 
+31        </div> 
+32  
+ 
+33        <hr> 
+34  
+ 
+35        <div class="jumbotron"> 
+36          <h1 id="step1">HTML in tooltip</h1> 
+37          <p id="step4" class="lead">We're going to use HTML codes in tooltips via Programmatic API</p> 
+38          <a class="btn btn-large btn-success" href="javascript:void(0);" onclick="startIntro();">Show me how</a> 
+39        </div> 
+40  
+ 
+41        <hr> 
+42  
+ 
+43        <div class="row-fluid marketing"> 
+44          <div id="step2" class="span6"> 
+45            <h4>Section One</h4> 
+46            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis mollis augue a neque cursus ac blandit orci faucibus. Phasellus nec metus purus.</p> 
+47  
+ 
+48            <h4>Section Two</h4> 
+49            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis mollis augue a neque cursus ac blandit orci faucibus. Phasellus nec metus purus.</p> 
+50  
+ 
+51            <h4>Section Three</h4> 
+52            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis mollis augue a neque cursus ac blandit orci faucibus. Phasellus nec metus purus.</p> 
+53          </div> 
+54  
+ 
+55          <div id="step3" class="span6"> 
+56            <h4>Section Four</h4> 
+57            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis mollis augue a neque cursus ac blandit orci faucibus. Phasellus nec metus purus.</p> 
+58  
+ 
+59  
+ 
+60            <h4>Section Five</h4> 
+61            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis mollis augue a neque cursus ac blandit orci faucibus. Phasellus nec metus purus.</p> 
+62  
+ 
+63            <h4>Section Six</h4> 
+64            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis mollis augue a neque cursus ac blandit orci faucibus. Phasellus nec metus purus.</p> 
+65          </div> 
+66        </div> 
+67  
+ 
+68        <hr> 
+69  
+ 
+70      </div> 
+71      <script type="text/javascript" src="../../intro.js"></script> 
+72      <script type="text/javascript"> 
+73        function startIntro(){ 
+74          var intro = introJs(); 
+75            intro.setOptions({ 
+76              steps: [ 
+77                { 
+78                  element: '#step1', 
+79                  intro: "This is a <b>bold</b> tooltip." 
+80                }, 
+81                { 
+82                  element: '#step2', 
+83                  intro: "Ok, <i>wasn't</i> that fun?", 
+84                  position: 'right' 
+85                }, 
+86                { 
+87                  element: '#step3', 
+88                  intro: 'More features, more <span style="color: red;">f</span><span style="color: green;">u</span><span style="color: blue;">n</span>.', 
+89                  position: 'left' 
+90                }, 
+91                { 
+92                  element: '#step4', 
+93                  intro: "<span style='font-family: Tahoma'>Another step with new font!</span>", 
+94                  position: 'bottom' 
+95                }, 
+96                { 
+97                  element: '#step5', 
+98                  intro: '<strong>Get</strong> it, <strong>use</strong> it.' 
+99                } 
+100              ] 
+101            }); 
+102   
+103            intro.start(); 
+104        } 
+105      </script> 
+106    </body> 
+107  </html> 
