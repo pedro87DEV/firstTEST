@@ -1,7 +1,7 @@
-![logo_PEDRO](./images/PEDRO.png)  d
+![logo_PEDRO](./images/PEDRO.png)
 
 
-# Processo per la scrittura di un messaggio sulla BLOCKCHAIN
+# *** Processo per la scrittura di un messaggio sulla BLOCKCHAIN ***
 
 
 ## 1	Introduzione
