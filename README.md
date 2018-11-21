@@ -1,4 +1,4 @@
-![logo_bps](./images/bps_blu_scritta_piccolo.png)  
+![logo_PEDRO](./images/PEDRO.png)  
 
 
 # Istruzioni per la verifica autonoma su Blockchain della ricevuta di notarizzazione
