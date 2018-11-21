@@ -4,28 +4,13 @@
 # Processo per la scrittura di un messaggio sulla BLOCKCHAIN
 
 
-
-
-
 ## 1	Introduzione
-Con questo documento vogliamo spiegarti come verificare autonomamente la correttezza e la veridicità dei dati presenti sulla tua ricevuta di notarizzazione.
-Banca Popolare di Sondrio ti garantisce che i dati siano correttamente scritti sulla blockchain (un registro aperto e distribuito che può memorizzare le transazioni tra due parti in modo sicuro, verificabile e permanente) ma, con delle competenze informatiche di base, puoi provare anche tu ad effettuare la verifica da solo.
-
-Tutti i passi spiegati in questa guida sono implementati in una **[pagina di verifica automatica](https://github.com/pedro87DEV/firstTEST/)** nella quale si può caricare la ricevuta per la verifica.
+Questo progetto prevede la scrittura di un determinato messaggio dato in input sulla Blockchain.
  
 
-## 2	Cosa verificare?
-Potrai verificare quanto riportato nella ricevuta del servizio in due fasi:
+## 2	Come funziona?
 
-1.	Verificare la consistenza dei dati presenti nella ricevuta;
-2.	Verificare la presenza dei dati su blockchain.
-
-La prima fase consiste nell’effettuare alcuni calcoli con l'ausilio di un computer, a partire dai dati riportati nella ricevuta. In questo modo potrai verificare la consistenza di quanto dichiarato sul documento.
-
-La seconda fase consiste nel verificare la presenza su blockchain dei risultati calcolati durante la fase precedente, tramite l’utilizzo di servizi erogati da terzi indipendenti. Tali servizi sono portali web che consentono agli utenti di interrogare direttamente la blockchain tramite interfaccia visuale o API.
-L'indipendenza dei portali rispetto all'erogatore del servizio di notarizzazione (BPS) fornisce una ulteriore garanzia di trasparenza al processo.
-
-Il servizio di notarizzazione non scrive sulla blockchain i tuoi dati in chiaro, bensì in forma offuscata e aggregata, in modo da non rendere possibile risalire al dato originale. Il dato scritto in blockchain è chiamato Merkle Root ed è il risultato di un processo di aggregazione noto con il nome Merkle Tree .
+Il servizio non scrive sulla blockchain i tuoi dati in chiaro, bensì in forma offuscata e aggregata, in modo da non rendere possibile risalire al dato originale. Il dato scritto in blockchain è chiamato Merkle Root ed è il risultato di un processo di aggregazione noto con il nome Merkle Tree.
 
 #### Cos’è il Merkle Tree?  
 
@@ -35,7 +20,6 @@ Dimostrare l’appartenenza di una data foglia (dato di input) ad un merkle tree
 ![img_merkletree](./images/Hash_Tree.png)    
 Figura 0- Schema Merkle Tree
 
-# Capitolo
 
 ## 3	Struttura della ricevuta
 Il servizio fornisce tramite la ricevuta tutte le informazioni necessarie alla verifica autonoma dell'avvenuta notarizzazione. La ricevuta è divisa in cinque sezioni, ogni sezione contiene una specifica serie di dati:
@@ -84,7 +68,7 @@ Esempio:
 ```
 
 
-## 4	Verifica della consistenza dei dati del documento
+## 4	Verifica della consistenza dei dati
 ### 4.1	Validazione dell’hash dei dati notarizzati
 La prima cosa che devi verificare è che la versione offuscata del tuo dato sia stata correttamente inserita nel Merkle Tree. Per fare questo:
 
@@ -133,7 +117,7 @@ Fatto questo avrai ottenuto il Merkle Root;
 
 6. Verifica che il merkle root ottenuto al passo precedente sia uguale con quello contenuto nel campo root del JSON contenuto nel riquadro “Dati del Merkle Tree"
 
-## 5 Verifica della presenza dei dati su blockchain
+# Verifica della presenza dei dati su blockchain
 
 A questo punto puoi procedere a verificare se il Merkle Root sia effettivamente stato scritto sulla Block Chain. 
 
