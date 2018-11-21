@@ -3,9 +3,8 @@
 
 # Processo per la scrittura di un messaggio sulla BLOCKCHAIN
 
-# Capitolo
 
-clickando questo [link][Capitolo] si é indirizzati al Capitolo
+
 
 
 ## 1	Introduzione
@@ -35,6 +34,8 @@ Dimostrare l’appartenenza di una data foglia (dato di input) ad un merkle tree
 
 ![img_merkletree](./images/Hash_Tree.png)    
 Figura 0- Schema Merkle Tree
+
+# Capitolo
 
 ## 3	Struttura della ricevuta
 Il servizio fornisce tramite la ricevuta tutte le informazioni necessarie alla verifica autonoma dell'avvenuta notarizzazione. La ricevuta è divisa in cinque sezioni, ogni sezione contiene una specifica serie di dati:
