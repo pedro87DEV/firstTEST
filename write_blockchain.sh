@@ -28,13 +28,9 @@ read FILE_TO_CONVERT
 sha256sum $DIR_TO_CONVERT/$FILE_TO_CONVERT >> $FILE_CONVERTED'_'$TIMESTAMP.txt
 
 ##########################################################################
-# Lancio di un javascript
+# Lancio dello script Python
 ##########################################################################
 
-JAVA_HOME=/usr/lib/jvm/jdk1.6.0_02 
-CLASSPATH=/home/freddy/myapp/lib/whatever.jar
-
-$JAVA_HOME/bin/java -cp $CLASSPATH MyJavaClass 
-exit 0
+python /home/smart/SVIL/PEDRO/send-OP_RETURN.py
 
  
