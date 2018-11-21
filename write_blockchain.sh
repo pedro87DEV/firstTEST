@@ -11,6 +11,7 @@
 # DEFINIZIONE VARIABILI UTILIZZATE NELLO SCRIPT
 ##########################################################################
 TIMESTAMP=`date +%Y%m%d-%H%M%S`
+DIR_SCRIPT='/home/smart/SVIL/PEDRO'
 DIR_TO_CONVERT='/home/smart/SVIL/PEDRO/file_to_convert'
 FILE_CONVERTED='/home/smart/SVIL/PEDRO/file_sha_converted'
 
@@ -31,6 +32,6 @@ sha256sum $DIR_TO_CONVERT/$FILE_TO_CONVERT >> $FILE_CONVERTED'_'$TIMESTAMP.txt
 # Lancio dello script Python
 ##########################################################################
 
-python /home/smart/SVIL/PEDRO/send-OP_RETURN.py
+python $DIR_SCRIPT/send-OP_RETURN.py
 
  
