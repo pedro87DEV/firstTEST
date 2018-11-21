@@ -26,25 +26,19 @@ Figura 0- Schema Merkle Tree
 Simple Python commands and libraries for using OP_RETURNs in bitcoin transactions.
 
 Copyright (c) Coin Sciences Ltd - http://coinsecrets.org/
-
 MIT License (see headers in files)
 
-
-REQUIREMENTS
-------------
+**REQUIREMENTS**
 * Python 2.5 or later (including Python 3)
 * Bitcoin Core 0.9 or later
 
-
-BEFORE YOU START
-----------------
+**BEFORE YOU START**
 Check the constant settings at the top of OP_RETURN.py.
 If you just installed Bitcoin Core, wait for it to download and verify old blocks.
 If using as a library, add 'from OP_RETURN import *' in your Python script file.
 
 
-TO STORE SOME DATA IN THE BLOCKCHAIN USING OP_RETURNs
------------------------------------------------------
+## TO STORE SOME DATA IN THE BLOCKCHAIN USING OP_RETURNs
 
 On the command line:
 
