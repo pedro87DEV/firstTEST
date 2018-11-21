@@ -1,7 +1,7 @@
 ![logo_PEDRO](./images/PEDRO.png)
 
 
-# *** Processo per la scrittura di un messaggio sulla BLOCKCHAIN ***
+# *** Processo per la scrittura di un messaggio sulla BLOCKCHAIN
 
 
 ## 1	Introduzione
@@ -117,7 +117,7 @@ Fatto questo avrai ottenuto il Merkle Root;
 
 6. Verifica che il merkle root ottenuto al passo precedente sia uguale con quello contenuto nel campo root del JSON contenuto nel riquadro “Dati del Merkle Tree"
 
-# Verifica della presenza dei dati su blockchain
+# *** Verifica della presenza dei dati su blockchain
 
 A questo punto puoi procedere a verificare se il Merkle Root sia effettivamente stato scritto sulla Block Chain. 
 
