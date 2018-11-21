@@ -1,7 +1,7 @@
 ![logo_PEDRO](./images/PEDRO.png)
 
 
-# *** Processo per la scrittura di un messaggio sulla BLOCKCHAIN
+# *** PROCESSO PER SALVATAGGIO DI UN MESSAGGIO SULLA BLOCKCHAIN
 
 
 ## 1	Introduzione
@@ -21,7 +21,7 @@ Dimostrare l’appartenenza di una data foglia (dato di input) ad un merkle tree
 Figura 0- Schema Merkle Tree
 
 
-# *** Utilizzo di Python 
+# *** UTILIZZO DI OP_RETURNs IN PYTHON
 
 Simple Python commands and libraries for using OP_RETURNs in bitcoin transactions.
 
@@ -38,7 +38,7 @@ If you just installed Bitcoin Core, wait for it to download and verify old block
 If using as a library, add 'from OP_RETURN import *' in your Python script file.
 
 
-## TO STORE SOME DATA IN THE BLOCKCHAIN USING OP_RETURNs
+**TO STORE SOME DATA IN THE BLOCKCHAIN USING OP_RETURNs**
 
 On the command line:
 
