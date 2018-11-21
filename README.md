@@ -21,139 +21,161 @@ Dimostrare l’appartenenza di una data foglia (dato di input) ad un merkle tree
 Figura 0- Schema Merkle Tree
 
 
-## 3	Struttura della ricevuta
-Il servizio fornisce tramite la ricevuta tutte le informazioni necessarie alla verifica autonoma dell'avvenuta notarizzazione. La ricevuta è divisa in cinque sezioni, ogni sezione contiene una specifica serie di dati:
+# *** Utilizzo di Python 
 
-*	Dato utente notarizzato – contiene i dati in chiaro dell’utente, da cui si genera un dato offuscato, la hash, dalla quale è impossibile risalire ai dati originali);
+python-OP_RETURN v2
+===================
+Simple Python commands and libraries for using OP_RETURNs in bitcoin transactions.
 
-Esempio:
+Copyright (c) Coin Sciences Ltd - http://coinsecrets.org/
 
-``` 
-{NumeroPolizza:"01372602345678",DataScadenza:"01/07/2019",TargaVeicolo:"AB001YZ",
-DescrizioneProdotto:"TUTTO TONDO - ARCA ASSICURAZIONI",DataConsenso:"25/05/2018"}
-```
-
-*	Dati di notarizzazione – contiene i dati relativi alla transazione utilizzata per notarizzare l’evento sulla blockchain;
-
-Esempio:
-``` 
-{"blockchain":"Bitcoin-mainnet","transactionSentTime":1527501611054,
-"transactionId":"0aaba5f8a89ddd24dc2093ed3adc58cd9ac3edd67c72ea3bd81d25dc28e21a3c","status":"CONFIRMED"}
-```
-
-*	Dati del Merkle Tree – contiene alcune delle informazioni necessarie a ricostruire il dato scritto in blockchain;
-
-Esempio:
-``` 
-{"merkle":{"root":"532ebb192f9d5a86536d7002db6dc635c8536f453d133b45197aebd4e89752bf","index":1,
-"hash":"0dece4ebef7d3afbe5e2ef0208a52ca46c821dd1e1f8231c00262bb8d23dbc0e"}} 
-```
-
-*	Siblings 1 - Questa è la prima serie di dati (detti siblings), i quali consistono negli elementi da combinare all’hash del tuo dato allo scopo di ottenere il merkle root (dato scritto in blockchain);
-
-Esempio:
-``` 
-{"siblings_1":["cf070bf6c2d9a8db526809d6bfd0095c99ab41360bc14a653e1bf790ac296428",
-"878f9d366614390744924087fecd3908257b0409708ae0abef8a1417408e5ebb",
-"aa21611d9bef73cd8283d4b40a7338e21f0a6cbbd2d2dfdf9eba752e21e17b60"]}
-```
-
-*	Siblings 2 - Questa è la seconda serie di dati, i quali consistono (in modo identico a quanto sopra) negli elementi da combinare all’hash del tuo dato allo scopo di ottenere il merkle root (dato scritto in blockchain)
-**N.B.** La sezione Sibilings 2 potrebbe **non** contenere alcun hash nel caso di alberi di dimensione ridotta.
-
-Esempio:
-
-``` 
-{"siblings_2":[]} 
-```
+MIT License (see headers in files)
 
 
-## 4	Verifica della consistenza dei dati
-### 4.1	Validazione dell’hash dei dati notarizzati
-La prima cosa che devi verificare è che la versione offuscata del tuo dato sia stata correttamente inserita nel Merkle Tree. Per fare questo:
-
-1.	Applica la funzione di hashing al testo contenuto nel riquadro della ricevuta di notarizzazione (**“Dati Notarizzati”**), mediante l’algoritmo Sha256.
-   **N.B.** ricordati - in prima battuta - di sostituire i simboli ÷ (Codice ASCII: 246) con degli **spazi bianchi** e di **togliere gli “a capo”** portando tutto su una riga. 
-   A questo punto è possibile effettuare l'hashing usando gli strumenti del tuo sistema operativo oppure cercando online dei convertitori da testo a sha256. 
-   Verifica con attenzione che durante la procedura di copia della stringa non siano stati inseriti dei caratteri spuri (tipicamente vengono inseriti degli "a capo" dovuti alla formattazione del PDF).
-   Controlla che il risultato della funzione di hashing sia uguale alla stringa contenuta nel campo **"hash"** della sezione **“Dati del Merkle Tree”** della ricevuta.
+REQUIREMENTS
+------------
+* Python 2.5 or later (including Python 3)
+* Bitcoin Core 0.9 or later
 
 
-### 4.2	Validazione del Merkle Root
+BEFORE YOU START
+----------------
+Check the constant settings at the top of OP_RETURN.py.
+If you just installed Bitcoin Core, wait for it to download and verify old blocks.
+If using as a library, add 'from OP_RETURN import *' in your Python script file.
 
-La seconda cosa che devi verificare è che il Merkle Root sia effettivamente il risultato dell'aggregazione dell'hash calcolato al punto precedente e dei siblings.
 
-- Dati 
-  - l’hash dei dati di notarizzazione (calcolato al punto 4.1),
-  - il suo indice nell’albero (campo index del JSON contenuto nel riquadro **“Dati del Merkle Tree”**)
-  - il primo siblings contenuto nel riquadro **“Siblings 1”**: 
+TO SEND A BITCOIN TRANSACTION WITH SOME OP_RETURN METADATA
+----------------------------------------------------------
 
-1. Concatena l’hash dei dati di notarizzazione con quelli del primo sibling secondo l’ordine indicato dal parametro **index**, come indicato nel seguente esempio:
-   - se index è **pari** (mod(index)=0), allora la stringa hash va posta prima della stringa sibling (hash+sibling);
-   - se index è **dispari** (mod(index)>0), allora la stringa hash va posta dopo la stringa sibling (sibling+hash);
+On the command line:
 
-**Applica l’operazione di hashing al risultato della concatenazione**
-![img5](./images/figura-1-sha256-sibling+hash.png)   
-Figura 1 - hash(sibling+hash)
+* python send-OP_RETURN.py <send-address> <send-amount> <metadata> <testnet (optional)>
 
-2. Il risultato dell'operazione di hashing precedente va decodificato da stringa esadecimale in testo semplice (utilizza un servizio online di conversione esadecimale-testo). Non ti preoccupare se il risultato contiene caratteri non convenzionali (si veda la figura 2).
+  <send-address> is the bitcoin address of the recipient
+  <send-amount> is the amount to send (in units of BTC)
+  <metadata> is a hex string or raw string containing the OP_RETURN metadata
+             (auto-detection: treated as a hex string if it is a valid one)
+  <testnet> should be 1 to use the bitcoin testnet, otherwise it can be omitted
 
-![img5](images/figura-2-stringa-esadecimale-decodificata.png) 
+* Outputs an error if one occurred or the txid if sending was successful
+
+* Wait a few seconds then check http://coinsecrets.org/ for your OP_RETURN transaction.
+
+* Examples:
+
+  python send-OP_RETURN.py 149wHUMa41Xm2jnZtqgRx94uGbZD9kPXnS 0.001 'Hello, blockchain!'
+  python send-OP_RETURN.py 149wHUMa41Xm2jnZtqgRx94uGbZD9kPXnS 0.001 48656c6c6f2c20626c6f636b636861696e21
+  python send-OP_RETURN.py mzEJxCrdva57shpv62udriBBgMECmaPce4 0.001 'Hello, testnet!' 1
+
+
+As a library:
+
+* OP_RETURN_send(send_address, send_amount, metadata, testnet=False)
+
+  send_address is the bitcoin address of the recipient
+  send_amount is the amount to send (in units of BTC)
+  metadata is a string of raw bytes containing the OP_RETURN metadata
+  testnet is whether to use the bitcoin testnet network (False if omitted)
+
+* Returns: {'error': '<some error string>'}
+       or: {'txid': '<sent txid>'}
+
+* Examples
+
+  OP_RETURN_send('149wHUMa41Xm2jnZtqgRx94uGbZD9kPXnS', 0.001, 'Hello, blockchain!')
+  OP_RETURN_send('mzEJxCrdva57shpv62udriBBgMECmaPce4', 0.001, 'Hello, testnet!', True)
+
+
+
+TO STORE SOME DATA IN THE BLOCKCHAIN USING OP_RETURNs
+-----------------------------------------------------
+
+On the command line:
+
+* python store-OP_RETURN.py <data> <testnet (optional)>
+
+  <data> is a hex string or raw string containing the data to be stored
+         (auto-detection: treated as a hex string if it is a valid one)
+  <testnet> should be 1 to use the bitcoin testnet, otherwise it can be omitted
+
+* Outputs an error if one occurred or if successful, the txids that were used to store
+  the data and a short reference that can be used to retrieve it using this library.
+
+* Wait a few seconds then check http://coinsecrets.org/ for your OP_RETURN transactions.
+
+* Examples:
+
+  python store-OP_RETURN.py 'This example stores 47 bytes in the blockchain.'
+  python store-OP_RETURN.py 'This example stores 44 bytes in the testnet.' 1
   
-Figura 2 - Esadecimale decodificato
+  
+As a library:
 
-3. La stringa di testo così ottenuta va **nuovamente sottoposta all'algoritmo di hash** .
+* OP_RETURN_store(data, testnet=False)
 
-![img5](./images/figura-3-hash-stringa-decodificata.png)  
- Figura 3 - Hashing della stringa decodificata
+  data is the string of raw bytes to be stored
+  testnet is whether to use the bitcoin testnet network (False if omitted)
+  
+* Returns: {'error': '<some error string>'}
+       or: {'txids': ['<1st txid>', '<2nd txid>', ...],
+            'ref': '<ref for retrieving data>'}
+           
+* Examples:
 
-4. Ripeti i passi 1, 2 e 3 fino a che non hai finito entrambi gli elenchi di siblings, facendo attenzione a rispettare l’ordine in cui ti sono elencati sulla ricevuta e controllando sempre l’indice, in modo da non sbagliare la concatenazione
-5. Il risultato dell’ultima combinazione deve subire una trasformazione ulteriore: **l’inversione del testo**. Questa inversione viene effettuata secondo lo schema seguente:
-   - Effettuare un doppio hash (effettuare un hash del risultato ottenuto sopra, convertire a testo ed effettuare un nuovo hash)
-   - Conversione del risultato al punto sopra da esadecimale a testo semplice
-   - Inversione della stringa (ad esempio la stringa "ABCD" diventerà  "DCBA")
-   - Conversione del risultato del punto sopra da testo semplice ad esadecimale 
-Fatto questo avrai ottenuto il Merkle Root;
+  OP_RETURN_store('This example stores 47 bytes in the blockchain.')
+  OP_RETURN_store('This example stores 44 bytes in the testnet.', True)
 
-6. Verifica che il merkle root ottenuto al passo precedente sia uguale con quello contenuto nel campo root del JSON contenuto nel riquadro “Dati del Merkle Tree"
 
-# *** Verifica della presenza dei dati su blockchain
 
-A questo punto puoi procedere a verificare se il Merkle Root sia effettivamente stato scritto sulla Block Chain. 
+TO RETRIEVE SOME DATA FROM OP_RETURNs IN THE BLOCKCHAIN
+-------------------------------------------------------
 
-* Inserisci il transactionID dal riquadro “Dati di Notarizzazione” nella barra di ricerca di un portale di block-tracking, come ad esempio uno tra quelli suggeriti di seguito. 
-* Verifica se i dati corrispondono a quelli riportati sulla ricevuta, facendo attenzione che i dati riportati dal portale si riferiscano alla blockchain indicata nel campo blockchain del riquadro “Dati di notarizzazione”. 
+On the command line:
 
-Alcuni portali permettono di selezionare la blockchain che, nel nostro caso, è “Bitcoin”.
+* python retrieve-OP_RETURN.py <ref> <testnet (optional)>
 
-![img5](./images/figura-4-menu-di-selezione-della-blockchain.png)   
-Figura 4 - Menù di selezione della blockchain
+  <ref> is the reference that was returned by a previous storage operation
+  <testnet> should be 1 to use the bitcoin testnet, otherwise it can be omitted
+  
+* Outputs an error if one occurred or if successful, the retrieved data in hexadecimal
+  and ASCII format, a list of the txids used to store the data, a list of the blocks in
+  which the data is stored, and (if available) the best ref for retrieving the data
+  quickly in future. This may or may not be different from the ref you provided.
+  
+* Examples:
 
-Altri hanno domini separati:
+  python retrieve-OP_RETURN.py 356115-052075
+  python retrieve-OP_RETURN.py 396381-059737 1
+  
+  
+As a library:
 
-* [blockexplorer.com](https://blockexplorer.com/) per la rete principale di bitcoin
-* [testnet.blockexplorer.com](https://testnet.blockexplorer.com/) per la rete di test di bitcoin
+* OP_RETURN_retrieve(ref, max_results=1, testnet=False)
 
-Altri esempi di portali di tracking delle transazioni:
+  ref is the reference that was returned by a previous storage operation
+  max_results is the maximum number of results to retrieve (in general, omit for 1)
+  testnet is whether to use the bitcoin testnet network (False if omitted)
 
-* [blockchain.info](http://www.blockchain.info/)
-* [live.blockcypher.com](https://live.blockcypher.com/)
-* [chain.so](https://chain.so/btc)
+* Returns: {'error': '<some error string>'}
+       or: {'data': '<raw binary data>',
+            'txids': ['<1st txid>', '<2nd txid>', ...],
+            'heights': [<block 1 used>, <block 2 used>, ...],
+            'ref': '<best ref for retrieving data>',
+            'error': '<error if data only partially retrieved>'}
+           
+           A value of 0 in the 'heights' array means some data is still in the mempool.      
+           The 'ref' and 'error' elements are only present if appropriate.
+                 
+* Examples:
 
-Procediamo prendendo come esempio BlockExplorer. 
-Incolla l'id transazione nella barra di ricerca, verrà aperta una pagina contenente tutte le informazioni relative alla transazione. 
+  OP_RETURN_retrieve('356115-052075')
+  OP_RETURN_retrieve('396381-059737', 1, True)
+  
+  
 
-E' importante verificare che il numero di conferme - cerchiato in basso a destra - sia superiore a sei, numero che convenzionalmente identifica transazioni confermate in modo stabile dalla rete.
+VERSION HISTORY
+---------------
+v2.0.2 - 30 June 2015
+* First port of php-OP_RETURN to Python
 
-Per poter verificare che il payload della transazione coincida col Merkle Root che hai calcolato in precedenza, bisogna cliccare sul simbolo “+” evidenziato dall’immagine.
-
-![img5](./images/figura-5-informazioni-transazione-blockexplorer.png)   
-Figura 5 - informazioni transazione su portale web BlockExplorer
-
-Al click verrà aperta una schermata che visualizza nel dettaglio il contenuto della transazione. 
-Decodifica la stringa cerchiata di rosso nell’immagine sottostante (vedi passo 2, Capitolo 4.2) e verifica che il risultato sia identico al Merkle Root riportato sulla ricevuta.
-
-![img5](./images/figura-6-dettaglio-transazione.png)   
-Figura 6- Dettaglio transazione
-
-A questo punto la verifica è terminata ed hai potuto constatare autonomamente l’avvenuta notarizzazione.
