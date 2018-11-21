@@ -1,4 +1,4 @@
-![logo_PEDRO](./images/PEDRO.png)  
+![logo_PEDRO](./images/PEDRO.png)  d
 
 
 # Istruzioni per la verifica autonoma su Blockchain della ricevuta di notarizzazione
