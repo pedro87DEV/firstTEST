@@ -1,4 +1,4 @@
-![logo_project](./images/logo_project.png)
+![logo_project](./images/logo_project.jpg)
 
 
 # > PROCESSO PER SALVATAGGIO DI UN MESSAGGIO SULLA BLOCKCHAIN
