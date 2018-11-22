@@ -67,7 +67,7 @@ Di seguito vengono indicati alcuni semplici comandi per l'utilizzo di OP_RETURN 
 >  
 > Examples:
 > 
->  python store-OP_RETURN.py 'This example stores 47 bytes in the blockchain.'  
+>  "python store-OP_RETURN.py 'This example stores 47 bytes in the blockchain.' " 
 >  python store-OP_RETURN.py 'This example stores 44 bytes in the testnet.' 1
    
     
