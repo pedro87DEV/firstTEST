@@ -22,62 +22,68 @@ Figura 0- Schema Merkle Tree
 
 # > OP_RETURN AND DATA IN THE BLOCKCHAIN
 
-On OP_RETURN: There was been some confusion and misunderstanding in the community, regarding the OP_RETURN feature in 0.9 and data in the blockchain. This change is not an endorsement of storing data in the blockchain. The OP_RETURN change creates a provably-prunable output, to avoid data storage schemes – some of which were already deployed – that were storing arbitrary data such as images as forever-unspendable TX outputs, bloating bitcoin’s UTXO database.
+Nella blockchain, oltre all’indirizzo mittente e destinazione della transazione, è presente un campo “libero” dove è possibile scrivere ciò che si vuole. Tale campo, chiamato **OP_RETURN**, permette la scrittura di 80 byte, cioè di 80 caratteri alfanumerici a piacere, che verranno legati per sempre alla transazione e possono contenere messaggi codificati in esadecimale.
+Come il seguente esempio “I cant see u but I still love you lili” (tx):
 
-Storing arbitrary data in the blockchain is still a bad idea; it is less costly and far more efficient to store non-currency data elsewhere.
+![OP_RETURN](./images/OP_RETURN.png)
+
+Tecnicamente, il campo OP_RETURN è la modalità standard con la quale marcare una transazione come provably unspendable, inserendo una scriptPubKey del tipo “scriptPubKey: OP_RETURN {zero or more ops}” che fa sì che lo script venga identificato come invalido, garantendo che non possa esistere alcuna scriptSig in grado di spendere l’output. Dal punto di vista dell’impiego di risorse, le transazioni OP_RTURN sono l’ideale per non sovraccaricare la rete dato che gli output possono essere potenzialmente rimossi dalle cache di transazioni non spese, alleggerendo così l’intero sistema rispetto a modalità alternative di inserimento di dati nella blockchain.
+
+L’idea è che grazie a questo campo, OP_RETURN, è possibile utilizzare il protocollo Bitcoin non soltanto per trasferimenti di moneta virtuale ma anche per contratti evoluti o servizi come Proof of Existence, che utilizzano la blockchain per fornire un sistema di timestamp di documenti sicuro ed economico, basato sull’inserimento dell’hash del documento da certificare temporalmente all’interno del campo OP_RETURN.
 
 
-# > UTILIZZO DI OP_RETURNs IN PYTHON
+# > UTILIZZO DI OP_RETURNs CON PYTHON
 
 Simple Python commands and libraries for using OP_RETURNs in bitcoin transactions.
-
+ 
 Copyright (c) Coin Sciences Ltd - http://coinsecrets.org/
+ 
 MIT License (see headers in files)
-
-**REQUIREMENTS**
+ 
+>REQUIREMENTS
 * Python 2.5 or later (including Python 3)
 * Bitcoin Core 0.9 or later
-
-**BEFORE YOU START**
+ 
+>BEFORE YOU START**
 Check the constant settings at the top of OP_RETURN.py.
 If you just installed Bitcoin Core, wait for it to download and verify old blocks.
 If using as a library, add 'from OP_RETURN import *' in your Python script file.
+ 
 
+### TO STORE SOME DATA IN THE BLOCKCHAIN USING OP_RETURNs
 
-**TO STORE SOME DATA IN THE BLOCKCHAIN USING OP_RETURNs**
-
-On the command line:
+**On the command line:**
 
 * python store-OP_RETURN.py <data> <testnet (optional)>
-
+ 
   <data> is a hex string or raw string containing the data to be stored
          (auto-detection: treated as a hex string if it is a valid one)
   <testnet> should be 1 to use the bitcoin testnet, otherwise it can be omitted
-
+ 
 * Outputs an error if one occurred or if successful, the txids that were used to store
   the data and a short reference that can be used to retrieve it using this library.
-
+ 
 * Wait a few seconds then check http://coinsecrets.org/ for your OP_RETURN transactions.
-
+ 
 * Examples:
-
+ 
   python store-OP_RETURN.py 'This example stores 47 bytes in the blockchain.'
   python store-OP_RETURN.py 'This example stores 44 bytes in the testnet.' 1
-  
-  
-As a library:
-
+   
+    
+**As a library:**
+ 
 * OP_RETURN_store(data, testnet=False)
-
+ 
   data is the string of raw bytes to be stored
   testnet is whether to use the bitcoin testnet network (False if omitted)
-  
+   
 * Returns: {'error': '<some error string>'}
        or: {'txids': ['<1st txid>', '<2nd txid>', ...],
             'ref': '<ref for retrieving data>'}
-           
+            
 * Examples:
-
+ 
   OP_RETURN_store('This example stores 47 bytes in the blockchain.')
   OP_RETURN_store('This example stores 44 bytes in the testnet.', True)
   
