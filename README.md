@@ -31,6 +31,10 @@ Nella blockchain, oltre all’indirizzo mittente e destinazione della transazion
 Come il seguente esempio “I cant see u but I still love you lili” (tx):
 ![OP_RETURN](./images/OP_RETURN.png)
 
+Nella versione 0.9 del client Bitcoin Core, è stato raggiunto un compromesso con l’introduzione dell’operatore OP_RETURN. OP_RETURN consente agli sviluppatori di aggiungere 80 byte di dati non relativi ad un pagamento a un output di transazione. Tuttavia, a differenza dell’uso di UTXO "falso", l’operatore OP_RETURN crea un output specifico provably unspendable, che non ha bisogno di essere memorizzato nel set UTXO. OP_RETURN gli output sono registrati sulla blockchain, quindi consumano spazio su disco e contribuiscono all’aumento delle dimensioni della blockchain, ma non sono memorizzati nel set UTXO e quindi non gonfiano il pool di memoria UTXO e non caricano la costosa RAM dei full nodes.
+
+**La porzione di dati è limitata a 80 byte e più spesso rappresenta un hash, ad esempio l’output dall’algoritmo SHA256 (32 byte).** 
+
 Tecnicamente, il campo OP_RETURN è la modalità standard con la quale marcare una transazione come provably unspendable, inserendo una scriptPubKey del tipo “scriptPubKey: OP_RETURN {zero or more ops}” che fa sì che lo script venga identificato come invalido, garantendo che non possa esistere alcuna scriptSig in grado di spendere l’output. Dal punto di vista dell’impiego di risorse, le transazioni OP_RTURN sono l’ideale per non sovraccaricare la rete dato che gli output possono essere potenzialmente rimossi dalle cache di transazioni non spese, alleggerendo così l’intero sistema rispetto a modalità alternative di inserimento di dati nella blockchain.
 
 L’idea è che grazie a questo campo, OP_RETURN, è possibile utilizzare il protocollo Bitcoin non soltanto per trasferimenti di moneta virtuale ma anche per contratti evoluti o servizi come Proof of Existence, che utilizzano la blockchain per fornire un sistema di timestamp di documenti sicuro ed economico, basato sull’inserimento dell’hash del documento da certificare temporalmente all’interno del campo OP_RETURN.
