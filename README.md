@@ -56,15 +56,15 @@ Di seguito vengono indicati alcuni semplici comandi per l'utilizzo di OP_RETURN 
 
 >* **python store-OP_RETURN.py** <**data> <testnet (optional)>**
 > 
->-  <data> is a hex string or raw string containing the data to be stored
->         (auto-detection: treated as a hex string if it is a valid one)
->  <testnet> should be 1 to use the bitcoin testnet, otherwise it can be omitted
+>  - data is a hex string or raw string containing the data to be stored 
+>    (auto-detection: treated as a hex string if it is a valid one)   
+>  - testnet should be 1 to use the bitcoin testnet, otherwise it can be omitted 
 > 
->- Outputs an error if one occurred or if successful, the txids that were used to store
->  the data and a short reference that can be used to retrieve it using this library.
-> 
->- Wait a few seconds then check http://coinsecrets.org/ for your OP_RETURN transactions.
-> 
+>  - Outputs an error if one occurred or if successful, the txids that were used to store  
+>    the data and a short reference that can be used to retrieve it using this library. 
+>  
+>  - Wait a few seconds then check http://coinsecrets.org/ for your OP_RETURN transactions. 
+>  
 > Examples:
 > 
 >  python store-OP_RETURN.py 'This example stores 47 bytes in the blockchain.'  
