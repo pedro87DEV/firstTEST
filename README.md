@@ -4,25 +4,27 @@
 # > PROCESSO PER SALVATAGGIO DI UN MESSAGGIO SULLA BLOCKCHAIN
 
 
-## 1	Introduzione
+## 1)	Introduzione.
 Questo progetto prevede la definizione di un processo batch per la scrittura di un determinato messaggio dato in input sulla Blockchain.
  
 
-## 2	Come funziona?
+## 2)	Come funziona.
 
 Il servizio non scrive sulla blockchain i tuoi dati in chiaro, bensì in forma offuscata ed aggregata mediante un processo di hashing, in modo da non rendere possibile risalire al dato originale. Il dato scritto in blockchain è chiamato Merkle Root ed è il risultato di un processo di aggregazione noto con il nome Merkle Tree.
 
-#### Cos’è il Merkle Tree?  
+#### Cos’è il Merkle Tree ? 
 
 In letteratura informatica, un hash tree o merkle tree è una struttura ad albero le cui foglie rappresentano blocchi di dati sotto forma di hash, una funzione non invertibile che mappa una stringa di lunghezza arbitraria in una stringa di lunghezza minore. La caratteristica principale del merkle tree è di permettere una verifica efficiente e sicura di strutture dati di grandi dimensioni.
 Dimostrare l’appartenenza di una data foglia (dato di input) ad un merkle tree necessita infatti un numero di computazioni proporzionale al logaritmo del numero delle foglie di quel determinato merkle tree.
  
-## Schema architettura processo
+## 3) Schema architettura processo
 
 ![schema_processo](./images/schema.jpg)
  
 
-# > OP_RETURN AND DATA IN THE BLOCKCHAIN
+# > DATA STORAGE NELLA BLOCKCHAIN CON OP_RETURN
+
+## 1)	Che cos'è OP_RETURN.
 
 Nella blockchain, oltre all’indirizzo mittente e destinazione della transazione, è presente un campo “libero” dove è possibile scrivere ciò che si vuole. Tale campo, chiamato **OP_RETURN**, permette la scrittura di 80 byte, cioè di 80 caratteri alfanumerici a piacere, che verranno legati per sempre alla transazione e possono contenere messaggi codificati in esadecimale.
 Come il seguente esempio “I cant see u but I still love you lili” (tx):
@@ -33,14 +35,11 @@ Tecnicamente, il campo OP_RETURN è la modalità standard con la quale marcare u
 L’idea è che grazie a questo campo, OP_RETURN, è possibile utilizzare il protocollo Bitcoin non soltanto per trasferimenti di moneta virtuale ma anche per contratti evoluti o servizi come Proof of Existence, che utilizzano la blockchain per fornire un sistema di timestamp di documenti sicuro ed economico, basato sull’inserimento dell’hash del documento da certificare temporalmente all’interno del campo OP_RETURN.
 
 
-# > UTILIZZO DI OP_RETURNs CON PYTHON
+## 2) Utilizzo di OP_RETURN con linguaggio Python
 
 Simple Python commands and libraries for using OP_RETURNs in bitcoin transactions.
- 
-Copyright (c) Coin Sciences Ltd - http://coinsecrets.org/
- 
-MIT License (see headers in files)
- 
+  
+
 >REQUIREMENTS
 * Python 2.5 or later (including Python 3)
 * Bitcoin Core 0.9 or later
