@@ -67,7 +67,7 @@ Di seguito vengono indicati alcuni semplici comandi per l'utilizzo di OP_RETURN 
 >  
 > Examples:
 > 
->  "python store-OP_RETURN.py 'This example stores 47 bytes in the blockchain.' " 
+>  python store-OP_RETURN.py 'This example stores 47 bytes in the blockchain.' 
 >  python store-OP_RETURN.py 'This example stores 44 bytes in the testnet.' 1
    
     
@@ -75,15 +75,15 @@ Di seguito vengono indicati alcuni semplici comandi per l'utilizzo di OP_RETURN 
  
 >* **OP_RETURN_store(data, testnet=False)**
 > 
->-  data is the string of raw bytes to be stored
->  testnet is whether to use the bitcoin testnet network (False if omitted)
+>  - data is the string of raw bytes to be stored 
+>    testnet is whether to use the bitcoin testnet network (False if omitted) 
 >   
->- Returns: {'error': '<some error string>'}
->       or: {'txids': ['<1st txid>', '<2nd txid>', ...],
->            'ref': '<ref for retrieving data>'}
->            
+>  - Returns: {'error': '<some error string>'} 
+>         or: {'txids': ['<1st txid>', '<2nd txid>', ...],
+>              'ref': '<ref for retrieving data>'}
+>             
 > Examples:
-> 
+>  
 >  OP_RETURN_store('This example stores 47 bytes in the blockchain.')  
 >  OP_RETURN_store('This example stores 44 bytes in the testnet.', True)
   
