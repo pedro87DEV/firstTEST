@@ -2,7 +2,6 @@ Author: Mattia Pedroncelli - Date: 2018
 mattia.pedroncelli@gmail.com
 ![logo_project](./images/logo_project_pedro.jpg)
 
-
 # > PROCESSO PER SALVATAGGIO DI UN MESSAGGIO SULLA BLOCKCHAIN
 
 
