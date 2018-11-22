@@ -17,7 +17,7 @@ Il servizio non scrive sulla blockchain i tuoi dati in chiaro, bensì in forma o
 In letteratura informatica, un hash tree o merkle tree è una struttura ad albero le cui foglie rappresentano blocchi di dati sotto forma di hash, una funzione non invertibile che mappa una stringa di lunghezza arbitraria in una stringa di lunghezza minore. La caratteristica principale del merkle tree è di permettere una verifica efficiente e sicura di strutture dati di grandi dimensioni.
 Dimostrare l’appartenenza di una data foglia (dato di input) ad un merkle tree necessita infatti un numero di computazioni proporzionale al logaritmo del numero delle foglie di quel determinato merkle tree.
  
-## 3) Schema architettura processo
+## 3) Schema architettura processo.
 
 ![schema_processo](./images/schema.png)
  
@@ -35,7 +35,7 @@ Tecnicamente, il campo OP_RETURN è la modalità standard con la quale marcare u
 L’idea è che grazie a questo campo, OP_RETURN, è possibile utilizzare il protocollo Bitcoin non soltanto per trasferimenti di moneta virtuale ma anche per contratti evoluti o servizi come Proof of Existence, che utilizzano la blockchain per fornire un sistema di timestamp di documenti sicuro ed economico, basato sull’inserimento dell’hash del documento da certificare temporalmente all’interno del campo OP_RETURN.
 
 
-## 2) Utilizzo di OP_RETURN con linguaggio Python
+## 2) Utilizzo di OP_RETURN con linguaggio Python.
 
 Simple Python commands and libraries for using OP_RETURNs in bitcoin transactions.
   
