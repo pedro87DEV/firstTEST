@@ -19,7 +19,7 @@ Dimostrare l’appartenenza di una data foglia (dato di input) ad un merkle tree
  
 ## 3) Schema architettura processo
 
-![schema_processo](./images/schema.jpg)
+![schema_processo](./images/schema.png)
  
 
 # > DATA STORAGE NELLA BLOCKCHAIN CON OP_RETURN
