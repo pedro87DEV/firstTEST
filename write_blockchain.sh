@@ -15,8 +15,6 @@ TIMESTAMP=`date +%Y%m%d-%H%M%S`
 DIR_FILE_TO_CONVERT='/home/smart/SVIL/PEDRO/file_to_convert'
 DIR_FILE_WRITE='/home/smart/SVIL/PEDRO/file_write_blockchain_done'
 
-#echo -n “Inserisci il nome file da convertire“
-#read FILE_TO_CONVERT 
  
 for i in $(ls $DIR_FILE_TO_CONVERT);
 
