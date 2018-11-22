@@ -67,7 +67,7 @@ Simple Python commands and libraries for using OP_RETURNs in bitcoin transaction
 > 
 > Examples:
 > 
->  python store-OP_RETURN.py 'This example stores 47 bytes in the blockchain.'
+>  python store-OP_RETURN.py 'This example stores 47 bytes in the blockchain.'  
 >  python store-OP_RETURN.py 'This example stores 44 bytes in the testnet.' 1
    
     
@@ -84,7 +84,7 @@ Simple Python commands and libraries for using OP_RETURNs in bitcoin transaction
 >            
 > Examples:
 > 
->  OP_RETURN_store('This example stores 47 bytes in the blockchain.')
+>  OP_RETURN_store('This example stores 47 bytes in the blockchain.')  
 >  OP_RETURN_store('This example stores 44 bytes in the testnet.', True)
   
 
