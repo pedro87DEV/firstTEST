@@ -96,6 +96,6 @@ Di seguito vengono indicati alcuni semplici comandi per l'utilizzo di OP_RETURN 
 
 Sarà sufficiente controllare che il campo OP_RETURN presente sulla transazione registrata nella Blockchain (verificabile [cliccando a questo indirizzo](https://www.blockchain.com/explorer) contenga la stringa hash generata dallo script e salvata nella cartella **/file_write_blockchain_done.**
 
-Verifica correttezza stringa hash generata : https://www.fileformat.info/tool/hash.htm
+Per verificare che la stringa hash registrata sulla Blockchain nella nostra transazione corriponda all'effettiva stringa hash del nostro file di input si può utilizzare questo servizio e confrontare le due hash : https://www.fileformat.info/tool/hash.htm
 
 
