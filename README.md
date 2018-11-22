@@ -1,8 +1,8 @@
 ✓ Author: Mattia Pedroncelli© - Date: 2018  mattia.pedroncelli@gmail.com
 ![logo_project](./images/logo_project_pedro.jpg)
 
-![block](./images/Block.jpg)
-# > PROCESSO PER SALVATAGGIO DI UN MESSAGGIO SULLA BLOCKCHAIN
+
+# ![block](./images/Block.jpg) > PROCESSO PER SALVATAGGIO DI UN MESSAGGIO SULLA BLOCKCHAIN
 
 ## ❶ Introduzione.
 Questo progetto prevede la definizione di un processo batch per la scrittura di un determinato messaggio dato in input sulla Blockchain.
