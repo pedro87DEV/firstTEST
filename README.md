@@ -1,4 +1,4 @@
-![logo_PEDRO](./images/PEDRO.png)
+![logo_project](./images/logo_project.png)
 
 
 # > PROCESSO PER SALVATAGGIO DI UN MESSAGGIO SULLA BLOCKCHAIN
