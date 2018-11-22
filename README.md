@@ -16,7 +16,11 @@ Il servizio non scrive sulla blockchain i tuoi dati in chiaro, bensì in forma o
 
 In letteratura informatica, un hash tree o merkle tree è una struttura ad albero le cui foglie rappresentano blocchi di dati sotto forma di hash, una funzione non invertibile che mappa una stringa di lunghezza arbitraria in una stringa di lunghezza minore. La caratteristica principale del merkle tree è di permettere una verifica efficiente e sicura di strutture dati di grandi dimensioni.
 Dimostrare l’appartenenza di una data foglia (dato di input) ad un merkle tree necessita infatti un numero di computazioni proporzionale al logaritmo del numero delle foglie di quel determinato merkle tree.
+ 
+## Schema architettura processo
 
+![schema_processo](./images/schema.jpg)
+ 
 
 # > OP_RETURN AND DATA IN THE BLOCKCHAIN
 
