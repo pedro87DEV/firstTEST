@@ -37,8 +37,8 @@ L’idea è che grazie a questo campo, OP_RETURN, è possibile utilizzare il pro
 
 ## 2) Utilizzo di OP_RETURN con linguaggio Python.
 
-Simple Python commands and libraries for using OP_RETURNs in bitcoin transactions.
-  
+Di seguito vengono indicati alcuni semplici comandi per l'utilizzo di OP_RETURN per generare transazioni da scrivere sulla Blockchain.
+   
 
 >REQUIREMENTS
 * Python 2.5 or later (including Python 3)
