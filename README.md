@@ -13,10 +13,10 @@ Questo progetto prevede la definizione di un processo batch per la scrittura di 
 Il servizio non scrive sulla blockchain i tuoi dati in chiaro, bensì in forma offuscata ed aggregata mediante un processo di hashing, in modo da non rendere possibile risalire al dato originale. Il dato scritto in blockchain è chiamato Merkle Root ed è il risultato di un processo di aggregazione noto con il nome Merkle Tree.
 
 #### Cos’è il Merkle Tree ? 
-
+``` 
 In letteratura informatica, un hash tree o merkle tree è una struttura ad albero le cui foglie rappresentano blocchi di dati sotto forma di hash, una funzione non invertibile che mappa una stringa di lunghezza arbitraria in una stringa di lunghezza minore. La caratteristica principale del merkle tree è di permettere una verifica efficiente e sicura di strutture dati di grandi dimensioni.
 Dimostrare l’appartenenza di una data foglia (dato di input) ad un merkle tree necessita infatti un numero di computazioni proporzionale al logaritmo del numero delle foglie di quel determinato merkle tree.
- 
+``` 
 **>[Funzioni di crittografia hash](http://www.wikiwand.com/en/SHA-2)** 
  
 ## ❸ Schema architettura processo.
@@ -24,12 +24,12 @@ Dimostrare l’appartenenza di una data foglia (dato di input) ad un merkle tree
 ![schema_processo](./images/schema.png)
  
 # ![block](./images/Block.jpg)DATA STORAGE NELLA BLOCKCHAIN
-``` 
+  
 Nei primi anni dello sviluppo di bitcoin, gli sviluppatori hanno introdotto alcune limitazioni nei tipi di script che potrebbero essere elaborati dal client di riferimento. Queste limitazioni sono codificate in una funzione chiamata isStandard(), che definisce cinque tipi di transazioni "standard". I cinque tipi standard di script di transazione sono gli unici che verranno accettati dal client di riferimento e dalla maggior parte dei miner che eseguono il client di riferimento. Sebbene sia possibile creare una transazione non standard contenente uno script che non è uno dei tipi standard, è necessario trovare un minatore che non rispetti queste limitazioni
 per inserire la transazione in un blocco.
 Controlla il codice sorgente del client Bitcoin Core (l’implementazione di riferimento) per controllare cos’è attualmente consentito come script di transazione valido.
 I cinque tipi standard di script di transazione sono: pay-to-public-hash (P2PKH), chiave pubblica, multi-firma (limitata a 15 chiavi), pay-to-script-hash (P2SH) e **output di dati con OP_RETURN**.
-``` 
+  
 ## ❶	Che cos'è OP_RETURN.
 
 Nella blockchain, oltre all’indirizzo mittente e destinazione della transazione, è presente un campo “libero” dove è possibile scrivere ciò che si vuole. Tale campo, chiamato **OP_RETURN**, permette la scrittura di 80 byte, cioè di 80 caratteri alfanumerici a piacere, che verranno legati per sempre alla transazione e possono contenere messaggi codificati in esadecimale.
