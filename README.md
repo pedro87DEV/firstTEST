@@ -20,6 +20,12 @@ Dimostrare l’appartenenza di una data foglia (dato di input) ad un merkle tree
 ![img_merkletree](./images/Hash_Tree.png)    
 Figura 0- Schema Merkle Tree
 
+# *** OP_RETURN AND DATA IN THE BLOCKCHAIN
+
+On OP_RETURN: There was been some confusion and misunderstanding in the community, regarding the OP_RETURN feature in 0.9 and data in the blockchain. This change is not an endorsement of storing data in the blockchain. The OP_RETURN change creates a provably-prunable output, to avoid data storage schemes – some of which were already deployed – that were storing arbitrary data such as images as forever-unspendable TX outputs, bloating bitcoin’s UTXO database.
+
+Storing arbitrary data in the blockchain is still a bad idea; it is less costly and far more efficient to store non-currency data elsewhere.
+
 
 # *** UTILIZZO DI OP_RETURNs IN PYTHON
 
@@ -74,5 +80,7 @@ As a library:
 
   OP_RETURN_store('This example stores 47 bytes in the blockchain.')
   OP_RETURN_store('This example stores 44 bytes in the testnet.', True)
+  
+
 
 
