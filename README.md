@@ -54,7 +54,7 @@ Simple Python commands and libraries for using OP_RETURNs in bitcoin transaction
 
 **On the command line:**
 
->* python store-OP_RETURN.py <data> <testnet (optional)>
+>* **python store-OP_RETURN.py **<**data> <testnet (optional)>**
 > 
 >  <data> is a hex string or raw string containing the data to be stored
 >         (auto-detection: treated as a hex string if it is a valid one)
@@ -73,7 +73,7 @@ Simple Python commands and libraries for using OP_RETURNs in bitcoin transaction
     
 **As a library:**
  
->* OP_RETURN_store(data, testnet=False)
+>* **OP_RETURN_store(data, testnet=False)**
 > 
 >  data is the string of raw bytes to be stored
 >  testnet is whether to use the bitcoin testnet network (False if omitted)
