@@ -90,5 +90,8 @@ Di seguito vengono indicati alcuni semplici comandi per l'utilizzo di OP_RETURN 
   
 # ![block](./images/Block.jpg)VERIFICA STORICIZZAZIONE TRANSAZIONE SULLA BLOCKCHAIN
 
-  
+Sarà sufficiente controllare che il campo OP_RETURN presente sulla transazione registrata nella Blockchain (verificabile [cliccando a questo indirizzo](https://www.blockchain.com/explorer) contenga la stringa hash generata dallo script e salvata nella cartella **/file_write_blockchain_done.**
+
+Verifica correttezza stringa hash generata : https://www.fileformat.info/tool/hash.htm
+
 
