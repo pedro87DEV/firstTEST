@@ -54,39 +54,37 @@ Simple Python commands and libraries for using OP_RETURNs in bitcoin transaction
 
 **On the command line:**
 
-* python store-OP_RETURN.py <data> <testnet (optional)>
- 
-  <data> is a hex string or raw string containing the data to be stored
-         (auto-detection: treated as a hex string if it is a valid one)
-  <testnet> should be 1 to use the bitcoin testnet, otherwise it can be omitted
- 
-* Outputs an error if one occurred or if successful, the txids that were used to store
-  the data and a short reference that can be used to retrieve it using this library.
- 
-* Wait a few seconds then check http://coinsecrets.org/ for your OP_RETURN transactions.
- 
+>* python store-OP_RETURN.py <data> <testnet (optional)>
+> 
+>  <data> is a hex string or raw string containing the data to be stored
+>         (auto-detection: treated as a hex string if it is a valid one)
+>  <testnet> should be 1 to use the bitcoin testnet, otherwise it can be omitted
+> 
+>* Outputs an error if one occurred or if successful, the txids that were used to store
+>  the data and a short reference that can be used to retrieve it using this library.
+> 
+>* Wait a few seconds then check http://coinsecrets.org/ for your OP_RETURN transactions.
+> 
 > Examples:
- 
-  python store-OP_RETURN.py 'This example stores 47 bytes in the blockchain.'
-  python store-OP_RETURN.py 'This example stores 44 bytes in the testnet.' 1
+> 
+>  python store-OP_RETURN.py 'This example stores 47 bytes in the blockchain.'
+>  python store-OP_RETURN.py 'This example stores 44 bytes in the testnet.' 1
    
     
 **As a library:**
  
-* OP_RETURN_store(data, testnet=False)
- 
-  data is the string of raw bytes to be stored
-  testnet is whether to use the bitcoin testnet network (False if omitted)
-   
-* Returns: {'error': '<some error string>'}
-       or: {'txids': ['<1st txid>', '<2nd txid>', ...],
-            'ref': '<ref for retrieving data>'}
-            
+>* OP_RETURN_store(data, testnet=False)
+> 
+>  data is the string of raw bytes to be stored
+>  testnet is whether to use the bitcoin testnet network (False if omitted)
+>   
+>* Returns: {'error': '<some error string>'}
+>       or: {'txids': ['<1st txid>', '<2nd txid>', ...],
+>            'ref': '<ref for retrieving data>'}
+>            
 > Examples:
- 
-  OP_RETURN_store('This example stores 47 bytes in the blockchain.')
-  OP_RETURN_store('This example stores 44 bytes in the testnet.', True)
+> 
+>  OP_RETURN_store('This example stores 47 bytes in the blockchain.')
+>  OP_RETURN_store('This example stores 44 bytes in the testnet.', True)
   
-
-
 
