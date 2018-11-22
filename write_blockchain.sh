@@ -23,7 +23,7 @@ for i in $(ls $DIR_FILE_TO_CONVERT);
   #############################################################################################################
   # HASHING
   # CONVERSIONE FILE IN STRINGA FORMATO SHA256
-  # Viene generato in output un file contenente una stringa hash per ogni riga relativa al file crittografato
+  # Viene generato in output un file contenente n righe, una stringa hash per ogni riga relativa al file
   #############################################################################################################
 
    sha256sum $DIR_FILE_TO_CONVERT/$i >> file_sha_hashed'_'$TIMESTAMP.txt
