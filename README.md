@@ -5,20 +5,18 @@
 
 
 ## 1	Introduzione
-Questo progetto prevede la scrittura di un determinato messaggio dato in input sulla Blockchain.
+Questo progetto prevede la definizione di un processo batch per la scrittura di un determinato messaggio dato in input sulla Blockchain.
  
 
 ## 2	Come funziona?
 
-Il servizio non scrive sulla blockchain i tuoi dati in chiaro, bensì in forma offuscata e aggregata, in modo da non rendere possibile risalire al dato originale. Il dato scritto in blockchain è chiamato Merkle Root ed è il risultato di un processo di aggregazione noto con il nome Merkle Tree.
+Il servizio non scrive sulla blockchain i tuoi dati in chiaro, bensì in forma offuscata ed aggregata mediante un processo di hashing, in modo da non rendere possibile risalire al dato originale. Il dato scritto in blockchain è chiamato Merkle Root ed è il risultato di un processo di aggregazione noto con il nome Merkle Tree.
 
 #### Cos’è il Merkle Tree?  
 
 In letteratura informatica, un hash tree o merkle tree è una struttura ad albero le cui foglie rappresentano blocchi di dati sotto forma di hash, una funzione non invertibile che mappa una stringa di lunghezza arbitraria in una stringa di lunghezza minore. La caratteristica principale del merkle tree è di permettere una verifica efficiente e sicura di strutture dati di grandi dimensioni.
 Dimostrare l’appartenenza di una data foglia (dato di input) ad un merkle tree necessita infatti un numero di computazioni proporzionale al logaritmo del numero delle foglie di quel determinato merkle tree.
 
-![img_merkletree](./images/Hash_Tree.png)    
-Figura 0- Schema Merkle Tree
 
 # > OP_RETURN AND DATA IN THE BLOCKCHAIN
 
@@ -26,6 +24,7 @@ Nella blockchain, oltre all’indirizzo mittente e destinazione della transazion
 Come il seguente esempio “I cant see u but I still love you lili” (tx):
 
 ![OP_RETURN](./images/OP_RETURN.png)
+- Esempio campo OP_RETURN.
 
 Tecnicamente, il campo OP_RETURN è la modalità standard con la quale marcare una transazione come provably unspendable, inserendo una scriptPubKey del tipo “scriptPubKey: OP_RETURN {zero or more ops}” che fa sì che lo script venga identificato come invalido, garantendo che non possa esistere alcuna scriptSig in grado di spendere l’output. Dal punto di vista dell’impiego di risorse, le transazioni OP_RTURN sono l’ideale per non sovraccaricare la rete dato che gli output possono essere potenzialmente rimossi dalle cache di transazioni non spese, alleggerendo così l’intero sistema rispetto a modalità alternative di inserimento di dati nella blockchain.
 
