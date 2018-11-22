@@ -22,9 +22,7 @@ Dimostrare l’appartenenza di una data foglia (dato di input) ad un merkle tree
 
 Nella blockchain, oltre all’indirizzo mittente e destinazione della transazione, è presente un campo “libero” dove è possibile scrivere ciò che si vuole. Tale campo, chiamato **OP_RETURN**, permette la scrittura di 80 byte, cioè di 80 caratteri alfanumerici a piacere, che verranno legati per sempre alla transazione e possono contenere messaggi codificati in esadecimale.
 Come il seguente esempio “I cant see u but I still love you lili” (tx):
-
 ![OP_RETURN](./images/OP_RETURN.png)
-- Esempio campo OP_RETURN.
 
 Tecnicamente, il campo OP_RETURN è la modalità standard con la quale marcare una transazione come provably unspendable, inserendo una scriptPubKey del tipo “scriptPubKey: OP_RETURN {zero or more ops}” che fa sì che lo script venga identificato come invalido, garantendo che non possa esistere alcuna scriptSig in grado di spendere l’output. Dal punto di vista dell’impiego di risorse, le transazioni OP_RTURN sono l’ideale per non sovraccaricare la rete dato che gli output possono essere potenzialmente rimossi dalle cache di transazioni non spese, alleggerendo così l’intero sistema rispetto a modalità alternative di inserimento di dati nella blockchain.
 
@@ -43,8 +41,8 @@ MIT License (see headers in files)
 * Python 2.5 or later (including Python 3)
 * Bitcoin Core 0.9 or later
  
->BEFORE YOU START**
-Check the constant settings at the top of OP_RETURN.py.
+>BEFORE YOU START 
+Check the constant settings at the top of OP_RETURN.py. 
 If you just installed Bitcoin Core, wait for it to download and verify old blocks.
 If using as a library, add 'from OP_RETURN import *' in your Python script file.
  
