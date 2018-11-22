@@ -2,7 +2,7 @@
 ![logo_project](./images/logo_project_pedro.jpg)
 
 
-# ![block](./images/Block.jpg) > PROCESSO PER SALVATAGGIO DI UN MESSAGGIO SULLA BLOCKCHAIN
+# ![block](./images/Block.jpg)PROCESSO PER SALVATAGGIO DI UN MESSAGGIO SULLA BLOCKCHAIN
 
 ## ❶ Introduzione.
 Questo progetto prevede la definizione di un processo batch per la scrittura di un determinato messaggio dato in input sulla Blockchain.
@@ -21,8 +21,7 @@ Dimostrare l’appartenenza di una data foglia (dato di input) ad un merkle tree
 
 ![schema_processo](./images/schema.png)
  
-![block](./images/Block.jpg)
-# > DATA STORAGE NELLA BLOCKCHAIN CON OP_RETURN
+# ![block](./images/Block.jpg)DATA STORAGE NELLA BLOCKCHAIN CON OP_RETURN
 
 ## ❶	Che cos'è OP_RETURN.
 
@@ -87,8 +86,7 @@ Di seguito vengono indicati alcuni semplici comandi per l'utilizzo di OP_RETURN 
 >  OP_RETURN_store('This example stores 47 bytes in the blockchain.')  
 >  OP_RETURN_store('This example stores 44 bytes in the testnet.', True)
   
-![block](./images/Block.jpg)  
-# > VERIFICA STORICIZZAZIONE TRANSAZIONE SULLA BLOCKCHAIN
+# ![block](./images/Block.jpg)VERIFICA STORICIZZAZIONE TRANSAZIONE SULLA BLOCKCHAIN
 
   
 
