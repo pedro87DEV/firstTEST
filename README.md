@@ -23,7 +23,12 @@ Dimostrare l’appartenenza di una data foglia (dato di input) ad un merkle tree
 
 ![schema_processo](./images/schema.png)
  
-# ![block](./images/Block.jpg)DATA STORAGE NELLA BLOCKCHAIN CON OP_RETURN
+# ![block](./images/Block.jpg)DATA STORAGE NELLA BLOCKCHAIN
+
+Nei primi anni dello sviluppo di bitcoin, gli sviluppatori hanno introdotto alcune limitazioni nei tipi di script che potrebbero essere elaborati dal client di riferimento. Queste limitazioni sono codificate in una funzione chiamata isStandard(), che definisce cinque tipi di transazioni "standard". I cinque tipi standard di script di transazione sono gli unici che verranno accettati dal client di riferimento e dalla maggior parte dei miner che eseguono il client di riferimento. Sebbene sia possibile creare una transazione non standard contenente uno script che non è uno dei tipi standard, è necessario trovare un minatore che non rispetti queste limitazioni
+per inserire la transazione in un blocco.
+Controlla il codice sorgente del client Bitcoin Core (l’implementazione di riferimento) per controllare cos’è attualmente consentito come script di transazione valido.
+I cinque tipi standard di script di transazione sono: pay-to-public-hash (P2PKH), chiave pubblica, multi-firma (limitata a 15 chiavi), pay-to-script-hash (P2SH) e **output di dati con OP_RETURN**.
 
 ## ❶	Che cos'è OP_RETURN.
 
