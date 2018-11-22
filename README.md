@@ -45,9 +45,9 @@ Simple Python commands and libraries for using OP_RETURNs in bitcoin transaction
 * Bitcoin Core 0.9 or later
  
 >BEFORE YOU START 
-Check the constant settings at the top of OP_RETURN.py. 
-If you just installed Bitcoin Core, wait for it to download and verify old blocks.
-If using as a library, add 'from OP_RETURN import *' in your Python script file.
+* Check the constant settings at the top of OP_RETURN.py. 
+* If you just installed Bitcoin Core, wait for it to download and verify old blocks.
+* If using as a library, add 'from OP_RETURN import *' in your Python script file.
  
 
 ### TO STORE SOME DATA IN THE BLOCKCHAIN USING OP_RETURNs
@@ -65,7 +65,7 @@ If using as a library, add 'from OP_RETURN import *' in your Python script file.
  
 * Wait a few seconds then check http://coinsecrets.org/ for your OP_RETURN transactions.
  
-* Examples:
+> Examples:
  
   python store-OP_RETURN.py 'This example stores 47 bytes in the blockchain.'
   python store-OP_RETURN.py 'This example stores 44 bytes in the testnet.' 1
@@ -82,7 +82,7 @@ If using as a library, add 'from OP_RETURN import *' in your Python script file.
        or: {'txids': ['<1st txid>', '<2nd txid>', ...],
             'ref': '<ref for retrieving data>'}
             
-* Examples:
+> Examples:
  
   OP_RETURN_store('This example stores 47 bytes in the blockchain.')
   OP_RETURN_store('This example stores 44 bytes in the testnet.', True)
