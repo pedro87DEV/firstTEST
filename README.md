@@ -54,7 +54,7 @@ Di seguito vengono indicati alcuni semplici comandi per l'utilizzo di OP_RETURN 
 
 **On the command line:**
 
->* **python store-OP_RETURN.py **<**data> <testnet (optional)>**
+>* **python store-OP_RETURN.py** <**data> <testnet (optional)>**
 > 
 >  <data> is a hex string or raw string containing the data to be stored
 >         (auto-detection: treated as a hex string if it is a valid one)
